@@ -16,7 +16,6 @@ public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
         this.last = null;
     }
 
-
     public void add(T value) {
         addToTheEnd(value);
     }
