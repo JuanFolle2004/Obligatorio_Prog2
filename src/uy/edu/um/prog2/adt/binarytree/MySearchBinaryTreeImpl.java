@@ -1,10 +1,10 @@
 /**
  * 
  */
-package uy.edu.um.adt.binarytree;
+package uy.edu.um.prog2.adt.binarytree;
 
-import uy.edu.um.adt.linkedlist.MyLinkedListImpl;
-import uy.edu.um.adt.linkedlist.MyList;
+import uy.edu.um.prog2.adt.linkedlist.MyLinkedListImpl;
+import uy.edu.um.prog2.adt.linkedlist.MyList;
 
 public class MySearchBinaryTreeImpl<K extends Comparable<K>, V> implements
 		MySearchBinaryTree<K, V> {

@@ -1,9 +1,9 @@
-package uy.edu.um.adt.linkedlist;
+package uy.edu.um.prog2.adt.linkedlist;
 
-import uy.edu.um.adt.queue.EmptyQueueException;
-import uy.edu.um.adt.queue.MyQueue;
-import uy.edu.um.adt.stack.EmptyStackException;
-import uy.edu.um.adt.stack.MyStack;
+import uy.edu.um.prog2.adt.queue.EmptyQueueException;
+import uy.edu.um.prog2.adt.queue.MyQueue;
+import uy.edu.um.prog2.adt.stack.EmptyStackException;
+import uy.edu.um.prog2.adt.stack.MyStack;
 
 public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
 
@@ -36,8 +36,6 @@ public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
                 this.first = elementToAdd;
             }
 
-        } else {
-            // si el elemento es vacio se ignora
         }
     }
 
@@ -57,8 +55,6 @@ public class MyLinkedListImpl<T> implements MyList<T>, MyQueue<T>, MyStack<T> {
                 this.last = elementToAdd;
             }
 
-        } else {
-            // si el elemento es vacio se ignora
         }
     }
 

@@ -1,9 +1,9 @@
 /**
  * 
  */
-package uy.edu.um.adt.binarytree;
+package uy.edu.um.prog2.adt.binarytree;
 
-import uy.edu.um.adt.linkedlist.MyList;
+import uy.edu.um.prog2.adt.linkedlist.MyList;
 
 public interface MySearchBinaryTree<K extends Comparable<K>, V> {
 
