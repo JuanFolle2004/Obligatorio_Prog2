@@ -41,12 +41,6 @@ public class SBTtest {
 
     @Test
     public void containsTest() {
-        sbt.add(4,25);
-        sbt.add(2,8);
-        sbt.add(6,33);
-        sbt.add(3,50);
-        sbt.add(1,13);
-        sbt.add(5,24);
         assertTrue(sbt.contains(2));
         assertFalse(sbt.contains(8));
     }
@@ -54,13 +48,15 @@ public class SBTtest {
 
     @Test
     public void removeTest() {
-        sbt.add(4,25);
-        sbt.add(2,8);
-        sbt.add(6,33);
-        sbt.add(3,50);
-        sbt.add(1,13);
-        sbt.add(5,24);
         assertTrue(sbt.contains(2));
+        assertFalse(sbt.contains(8));
+    }
+
+
+    public void orderTest(){
+        assertArrayEquals(sbt.preOrder(), [4,2,1,3,6,5]);
+        assertArrayEquals(sbt.inOrder(), );
+        assertArrayEquals(sbt.postOrder(), );
     }
 
 }
