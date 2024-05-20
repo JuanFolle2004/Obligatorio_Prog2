@@ -38,13 +38,11 @@ public class SBTtest {
         assertEquals(sbt.find(8),null);
     }
 
-
     @Test
     public void containsTest() {
         assertTrue(sbt.contains(2));
         assertFalse(sbt.contains(8));
     }
-
 
     @Test
     public void removeTest() {
@@ -58,5 +56,4 @@ public class SBTtest {
         assertArrayEquals(sbt.inOrder(), );
         assertArrayEquals(sbt.postOrder(), );
     }
-
 }
