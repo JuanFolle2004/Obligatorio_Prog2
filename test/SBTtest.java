@@ -51,9 +51,9 @@ public class SBTtest {
     }
 
 
-    public void orderTest(){
-        assertArrayEquals(sbt.preOrder(), [4,2,1,3,6,5]);
-        assertArrayEquals(sbt.inOrder(), );
-        assertArrayEquals(sbt.postOrder(), );
-    }
+//    public void orderTest(){
+//        assertArrayEquals(sbt.preOrder(), [4,2,1,3,6,5]);
+//        assertArrayEquals(sbt.inOrder(), );
+//        assertArrayEquals(sbt.postOrder(), );
+//    }
 }

@@ -41,11 +41,23 @@ public class Stest {
             throw new RuntimeException(e);
         }
         String d = "Tres";
-        assertEquals(d,stack.peek());
+        try {
+            assertEquals(d,stack.pop());
+        } catch (EmptyStackException e) {
+            throw new RuntimeException(e);
+        }
     }
 
-
-
-
-
+    @Test
+    public void PeekTest() {
+        String s = "Cuatro";
+        assertEquals(s, stack.peek());
+        try {
+            stack.pop();
+        } catch (EmptyStackException e) {
+            throw new RuntimeException(e);
+        }
+        String d = "Tres";
+        assertEquals(d, stack.peek());
+    }
 }
