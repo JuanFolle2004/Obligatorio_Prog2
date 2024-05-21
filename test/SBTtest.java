@@ -46,14 +46,38 @@ public class SBTtest {
 
     @Test
     public void removeTest() {
-        assertTrue(sbt.contains(2));
-        assertFalse(sbt.contains(8));
+        sbt.remove(6);
+        int l = sbt.getRoot().getRight().getKey();
+        assertEquals(l,5);
     }
 
+    @Test
+    public void orderTest(){
+//        int a = sbt.preOrder().get(0);
+//        int b = sbt.preOrder().get(1);
+//        int c = sbt.preOrder().get(2);
+//        int d = sbt.preOrder().get(3);
+//        int e = sbt.preOrder().get(4);
+//        int f = sbt.preOrder().get(5);
+//        int[] g = {a,b,c,d,e,f};
+//        assertArrayEquals(g, new int[]{4,2,1,3,6,5});
 
-//    public void orderTest(){
-//        assertArrayEquals(sbt.preOrder(), [4,2,1,3,6,5]);
-//        assertArrayEquals(sbt.inOrder(), );
-//        assertArrayEquals(sbt.postOrder(), );
-//    }
+        int aa = sbt.inOrder().get(0);
+        int bb = sbt.inOrder().get(1);
+        int cc = sbt.inOrder().get(2);
+        int dd = sbt.inOrder().get(3);
+        int ee = sbt.inOrder().get(4);
+        int ff = sbt.inOrder().get(5);
+        int[] gg = {aa,bb,cc,dd,ee,ff};
+        assertArrayEquals(gg, new int[]{1,2,3,4,5,6});
+
+//        int aaa = sbt.postOrder().get(0);
+//        int bbb = sbt.postOrder().get(1);
+//        int ccc = sbt.postOrder().get(2);
+//        int ddd = sbt.postOrder().get(3);
+//        int eee = sbt.postOrder().get(4);
+//        int fff = sbt.postOrder().get(5);
+//        int[] ggg = {aaa,bbb,ccc,ddd,eee,fff};
+//        assertArrayEquals(ggg, new int[]{1,3,2,5,6,4});
+    }
 }
