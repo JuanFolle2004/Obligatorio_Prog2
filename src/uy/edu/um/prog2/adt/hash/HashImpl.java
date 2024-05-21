@@ -26,19 +26,13 @@ public class HashImpl<K,T> implements Hash<K,T> {
         if (num == 0) {
             throw new InformacionInvalida();
         }
-        grilla[marcador] = nuevo;
+        grilla[marcador] = nuevo;                   // en realidad preciso que chequee con los siguientes tambien
     }
 
     @Override
     public void delete(K key, T data) throws InformacionInvalida {
-        HashNode<K,T> nodo = new HashNode<>(key,data);
-        int a = 0;
-        for (int i = 0; i < size; i++) {
-            if (grilla[i].equals(nodo)) {
-                a = i;
-            }
-        }
-        if (a != 0) {
+        int a = search(key,data);
+        if (a != -1) {
             grilla[a] = null;
         } else {
             throw new InformacionInvalida();
@@ -47,7 +41,13 @@ public class HashImpl<K,T> implements Hash<K,T> {
 
     @Override
     public int search(K key, T data) {
-
-        return 0;
+        HashNode<K,T> nodo = new HashNode<>(key,data);
+        int a = -1;
+        for (int i = 0; i < size; i++) {
+            if (grilla[i].equals(nodo)) {
+                a = i;
+            }
+        }
+        return a;
     }
 }
