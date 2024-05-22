@@ -7,9 +7,14 @@ import uy.edu.um.prog2.adt.linkedlist.MyList;
 public class HashImpl<K,T> implements Hash<K,T> {
     private HashNode<K,T>[] grilla;
     public int size;
+    private int capacity;
+
+    private static final float loadfactor = 0.65F;
+
 
     public HashImpl(int size) {
         this.size = size;
+        this.capacity = 0;
         this.grilla = new HashNode[size];
     }
 
@@ -35,19 +40,17 @@ public class HashImpl<K,T> implements Hash<K,T> {
         int codigo = key.hashCode();
         int absoluto = Math.abs(codigo);
         int marcador = absoluto % size;
-        int num = size;
-        while (grilla[marcador] != null && num >= 0) {
-            marcador = (marcador + 1) % size;
-            num--;
-        }
-        if (num == 0) {
+
+        if (capacity >= size*loadfactor) {
             resize();
         }
-        if (grilla[marcador] == null) {
-            grilla[marcador] = nuevo;
-        } else {
-            insert(key,data);
+
+        while (grilla[marcador] != null ) {
+            marcador = (marcador + 1) % size;
         }
+
+        grilla[marcador] = nuevo;
+
     }
 
     public void resize() {
