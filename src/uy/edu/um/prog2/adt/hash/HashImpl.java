@@ -10,23 +10,49 @@ public class HashImpl<K,T> implements Hash<K,T> {
 
     public HashImpl(int size) {
         this.size = size;
-        this.grilla = null;
+        this.grilla = new HashNode[size];
+    }
+
+    public HashNode<K, T>[] getGrilla() {
+        return grilla;
+    }
+
+    public void setGrilla(HashNode<K, T>[] grilla) {
+        this.grilla = grilla;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     @Override
-    public void insert(K key, T data) throws InformacionInvalida {
+    public void insert(K key, T data) {
         HashNode<K,T> nuevo = new HashNode<>(key,data);
         int codigo = key.hashCode();
-        int marcador = codigo % size;
+        int absoluto = Math.abs(codigo);
+        int marcador = absoluto % size;
         int num = size;
-        while (grilla[marcador] != null && num >= 0) {
+        while (grilla[marcador] != null && num > 0) {
             marcador = (marcador + 1) % size;
             num--;
         }
         if (num == 0) {
-            throw new InformacionInvalida();
+            resize();
         }
-        grilla[marcador] = nuevo;                   // en realidad preciso que chequee con los siguientes tambien
+        grilla[marcador] = nuevo;
+    }
+
+    public void resize() {
+        HashNode<K,T>[] grillaVieja = grilla;
+        size = size*2;
+        grilla = new HashNode[size];
+        for ( HashNode<K,T> nodo :grillaVieja ) {
+            insert(nodo.key, nodo.data);
+        }
     }
 
     @Override
