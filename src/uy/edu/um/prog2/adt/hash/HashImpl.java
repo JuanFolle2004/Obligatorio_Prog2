@@ -31,26 +31,30 @@ public class HashImpl<K,T> implements Hash<K,T> {
 
     @Override
     public void insert(K key, T data) {
-        HashNode<K,T> nuevo = new HashNode<>(key,data);
+        HashNode<K, T> nuevo = new HashNode<>(key, data);
         int codigo = key.hashCode();
         int absoluto = Math.abs(codigo);
         int marcador = absoluto % size;
         int num = size;
-        while (grilla[marcador] != null && num > 0) {
+        while (grilla[marcador] != null && num >= 0) {
             marcador = (marcador + 1) % size;
             num--;
         }
         if (num == 0) {
             resize();
         }
-        grilla[marcador] = nuevo;
+        if (grilla[marcador] == null) {
+            grilla[marcador] = nuevo;
+        } else {
+            insert(key,data);
+        }
     }
 
     public void resize() {
         HashNode<K,T>[] grillaVieja = grilla;
         size = size*2;
         grilla = new HashNode[size];
-        for ( HashNode<K,T> nodo :grillaVieja ) {
+        for ( HashNode<K,T> nodo : grillaVieja ) {
             insert(nodo.key, nodo.data);
         }
     }
@@ -70,8 +74,10 @@ public class HashImpl<K,T> implements Hash<K,T> {
         HashNode<K,T> nodo = new HashNode<>(key,data);
         int a = -1;
         for (int i = 0; i < size; i++) {
-            if (grilla[i].equals(nodo)) {
-                a = i;
+            if (grilla[i] != null) {
+                if (grilla[i].equals(nodo)) {
+                    a = i;
+                }
             }
         }
         return a;
