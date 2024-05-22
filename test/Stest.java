@@ -34,18 +34,23 @@ public class Stest {
 
     @Test
     public void PopTest(){
-        String s = "Cuatro";
-        try {
-            assertEquals(s,stack.pop());
-        } catch (EmptyStackException e) {
-            throw new RuntimeException(e);
-        }
-        String d = "Tres";
-        try {
-            assertEquals(d,stack.pop());
-        } catch (EmptyStackException e) {
-            throw new RuntimeException(e);
-        }
+        try { assertEquals("Cuatro",stack.pop()); }
+        catch (EmptyStackException e) {
+            throw new RuntimeException(e); }
+        try { assertEquals("Tres",stack.pop()); }
+        catch (EmptyStackException e) {
+            throw new RuntimeException(e); }
+        try { assertEquals("Dos",stack.pop()); }
+        catch (EmptyStackException e) {
+            throw new RuntimeException(e); }
+        try { assertEquals("Uno",stack.pop()); }
+        catch (EmptyStackException e) {
+            throw new RuntimeException(e); }
+        boolean thrown = false;
+        try { stack.pop(); }
+        catch (EmptyStackException e) {
+            thrown = true; }
+        assertTrue(thrown);
     }
 
     @Test

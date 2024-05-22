@@ -30,9 +30,10 @@ public class Qtest {
         int a = q.dequeue();
         assertEquals(a,1);
         q.dequeue();
-        //assertThrows(q.dequeue(),);
-        // falta probar la excepcion
-
+        boolean thrown = false;
+        try {q.dequeue();}
+        catch(EmptyQueueException e){ thrown=true; }
+        assertTrue(thrown);
     }
 
 

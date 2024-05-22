@@ -110,13 +110,13 @@ public class TreeNode<K extends Comparable<K>, V> {
 	public void postOrderTraverse(MyList<K> traverse) {
 		if (left != null) {
 
-			left.inOrderTraverse(traverse);
+			left.postOrderTraverse(traverse);
 
 		}
 
 		if (right != null) {
 
-			right.inOrderTraverse(traverse);
+			right.postOrderTraverse(traverse);
 
 		}
 		traverse.add(this.getKey());
@@ -127,13 +127,13 @@ public class TreeNode<K extends Comparable<K>, V> {
 
 		if (left != null) {
 
-			left.inOrderTraverse(traverse);
+			left.preOrderTraverse(traverse);
 
 		}
 
 		if (right != null) {
 
-			right.inOrderTraverse(traverse);
+			right.preOrderTraverse(traverse);
 
 		}
 	}
